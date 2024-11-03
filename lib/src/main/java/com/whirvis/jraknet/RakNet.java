@@ -29,7 +29,7 @@
  */
 package com.whirvis.jraknet;
 
-public class RakNet {
+public final class RakNet {
 
     /**
      * Returns how many bytes are needed to represent a given number of bits.
@@ -66,6 +66,10 @@ public class RakNet {
             }
         }
         return false;
+    }
+
+    private RakNet() {
+        throw new UnsupportedOperationException();
     }
 
 }
