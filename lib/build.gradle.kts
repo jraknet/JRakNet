@@ -25,6 +25,7 @@ repositories {
 }
 
 dependencies {
+    implementation("org.jetbrains:annotations:20.1.0")
     testImplementation("org.junit.jupiter:junit-jupiter:5.7.2")
 }
 
