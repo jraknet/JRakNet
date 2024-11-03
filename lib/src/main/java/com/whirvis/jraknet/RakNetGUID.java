@@ -92,6 +92,9 @@ public class RakNetGUID implements Comparable<RakNetGUID> {
 
     @Override
     public String toString() {
+        if (this.equals(UNASSIGNED)) {
+            return "UNASSIGNED_RAKNET_GUID";
+        }
         return guidExact.toString();
     }
 
