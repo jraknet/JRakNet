@@ -31,4 +31,41 @@ package com.whirvis.jraknet;
 
 public class RakNet {
 
+    /**
+     * Returns how many bytes are needed to represent a given number of bits.
+     */
+    public static int bitsToBytes(int x) {
+        return (x + 7) >> 3;
+    }
+
+    /**
+     * Returns how many bits are needed to represent a given number of bytes.
+     */
+    public static int bytesToBits(int x) {
+        return x << 3;
+    }
+
+    public static final int MAX_RPC_MAP_SIZE = 0xFF - 1;
+    public static final int UNDEFINED_RPC_INDEX = 0xFF;
+
+    // TODO: /** Index of an unassigned player.*/
+    // public static final SystemIndex
+    //        UNASSIGNED_PLAYER_INDEX = new SystemIndex(0xFFFF);
+
+    // TODO: /** * Unassigned object ID. */
+    // public static final NetworkID
+    //        UNASSIGNED_NETWORK_ID = new NetworkID(0xFFFFFFFFFFFFFFFFL);
+
+    public static final int PING_TIMES_ARRAY_SIZE = 5;
+
+    public static boolean nonNumericHostString(String host) {
+        for (int i = 0; i < host.length(); i++) {
+            char c = host.charAt(i);
+            if ((c >= 'g' && c <= 'z') || (c >= 'A' && c <= 'Z')) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
