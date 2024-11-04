@@ -6,7 +6,8 @@ import java.math.BigInteger;
 
 public class RakNetGUID implements Comparable<RakNetGUID> {
 
-    private static final @NotNull BigInteger UNSIGNED_INT_MAX_VALUE = new BigInteger("FFFFFFFF", 16);
+    private static final @NotNull BigInteger
+            UNSIGNED_INT_MAX_VALUE = new BigInteger("FFFFFFFF", 16);
 
     public static final @NotNull RakNetGUID UNASSIGNED = new RakNetGUID(0xFFFFFFFFFFFFFFFFL);
 
@@ -17,16 +18,6 @@ public class RakNetGUID implements Comparable<RakNetGUID> {
 
     public static @NotNull RakNetGUID fromString(@NotNull String str) {
         return fromString(str, 10);
-    }
-
-    public static int toUnsignedInt(@NotNull RakNetGUID guid) {
-        /*
-         * See the following link for the original implementation of this method:
-         *  https://github.com/facebookarchive/RakNet/blob/master/Source/RakNetTypes.cpp#L811
-         */
-        BigInteger u32 = guid.guidExact.shiftRight(Integer.SIZE);
-        BigInteger mask = guid.guidExact.and(UNSIGNED_INT_MAX_VALUE);
-        return u32.xor(mask).intValue();
     }
 
     /*
@@ -74,9 +65,15 @@ public class RakNetGUID implements Comparable<RakNetGUID> {
         return guidExact.compareTo(guid.guidExact);
     }
 
+    /*
+     * See the following link for the original implementation of this method:
+     *  https://github.com/facebookarchive/RakNet/blob/master/Source/RakNetTypes.cpp#L811
+     */
     @Override
     public int hashCode() {
-        return Long.hashCode(guid);
+        BigInteger u32 = guidExact.shiftRight(Integer.SIZE);
+        BigInteger mask = guidExact.and(UNSIGNED_INT_MAX_VALUE);
+        return u32.xor(mask).intValue();
     }
 
     @Override
