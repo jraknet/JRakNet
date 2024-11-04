@@ -60,6 +60,10 @@ public class RakNetGUID implements Comparable<RakNetGUID> {
         this.guidExact = guid;
     }
 
+    public boolean isUnassigned() {
+        return this.equals(UNASSIGNED);
+    }
+
     @Override
     public int compareTo(@NotNull RakNetGUID guid) {
         return guidExact.compareTo(guid.guidExact);
