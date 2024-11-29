@@ -30,10 +30,25 @@
 package com.whirvis.jraknet;
 
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-import java.math.BigInteger;
+import java.util.Comparator;
 
-public class RakNetGUID implements Comparable<RakNetGUID> {
+public final class RakNetGUID implements Comparable<RakNetGUID> {
+
+    public static final @NotNull Comparator<RakNetGUID>
+            COMPARATOR = RakNetGUID::compareTo;
+
+    private static final @NotNull RakNetGUID
+            ZERO_GUID = new RakNetGUID(0L);
+
+    static @NotNull RakNetGUID
+    notNullOrZero(@Nullable RakNetGUID guid) {
+        if (guid == null) {
+            return ZERO_GUID;
+        }
+        return guid;
+    }
 
     private final long guid;
 
