@@ -29,7 +29,6 @@
  */
 package com.whirvis.jraknet;
 
-import com.whirvis.jraknet.dummy.AddressOrGUID;
 import org.jetbrains.annotations.NotNull;
 
 /**
