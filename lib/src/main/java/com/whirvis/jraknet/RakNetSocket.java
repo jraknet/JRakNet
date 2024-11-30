@@ -160,7 +160,7 @@ public abstract class RakNetSocket implements Closeable {
          * This method is called in a set interval, depending on the last
          * value passed to {@link #setPollTime(Duration)}.
          */
-        public abstract void pollSocket();
+        protected abstract void pollSocket();
 
     }
 
