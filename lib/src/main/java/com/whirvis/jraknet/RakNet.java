@@ -37,6 +37,11 @@ import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.util.Objects;
 
+/**
+ * The main RakNet component class.
+ * <p>
+ * This contains protocol information and utility methods.
+ */
 public final class RakNet {
 
     /**
