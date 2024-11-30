@@ -53,29 +53,6 @@ public final class RakNet {
         return x << 3;
     }
 
-    public static final int MAX_RPC_MAP_SIZE = 0xFF - 1;
-    public static final int UNDEFINED_RPC_INDEX = 0xFF;
-
-    // TODO: /** Index of an unassigned player.*/
-    // public static final SystemIndex
-    //        UNASSIGNED_PLAYER_INDEX = new SystemIndex(0xFFFF);
-
-    // TODO: /** * Unassigned object ID. */
-    // public static final NetworkID
-    //        UNASSIGNED_NETWORK_ID = new NetworkID(0xFFFFFFFFFFFFFFFFL);
-
-    public static final int PING_TIMES_ARRAY_SIZE = 5;
-
-    public static boolean nonNumericHostString(String host) {
-        for (int i = 0; i < host.length(); i++) {
-            char c = host.charAt(i);
-            if ((c >= 'g' && c <= 'z') || (c >= 'A' && c <= 'Z')) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     /**
      * The minimum value for the maximum transfer unit (MTU) allowed
      * by RakNet.
